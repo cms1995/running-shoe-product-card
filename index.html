@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+
+    <title>Product Card</title>
+</head>
+<body>
+    <div class="container">
+        <div class="product-card">
+            <div class="background-shoe">
+                <div class="gradients">
+                    <div class="gradient second" color="blue"></div>
+                    <div class="gradient" color="green"></div>
+                    <div class="gradient" color="red"></div>
+                    <div class="gradient" color="black"></div>
+                    <div class="gradient" color="orange"></div>                                    
+                </div>
+                <h1 class="nike">nike</h1>
+                <img src="/assets/logo.png" alt="" class="logo">
+                <a href="#" class="share"><i class="fas fa-share-alt"></i></a>
+
+                <img src="/assets/blue.png" alt="" class="shoe show" color="blue">
+                <img src="/assets/green.png" alt="" class="shoe" color="green">
+                <img src="/assets/red.png" alt="" class="shoe" color="red">
+                <img src="/assets/black.png" alt="" class="shoe" color="black">
+                <img src="/assets/orange.png" alt="" class="shoe" color="orange">
+            </div>
+            <div class="info">
+                <div class="shoe-model">
+                    <div>
+                        <h1 class="name"> Nike Zoom</h1>
+                        <span class="new-shoe">nuevo</span>
+                    </div>
+                    <h3 class="main-feature">Zapatillas Unisex para running </h3>
+                </div>
+                <div class="description">
+                    <h3 class=" title">Información del producto</h3>
+                    <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere earum sapiente officia dicta corporis sed assumenda ducimus, facilis non at porro qui voluptatum similique natus laudantium quis quibusdam quia consequuntur?</p>        
+                </div>
+                <div class="color-container">
+                    <h3 class="title">Color</h3>
+                    <div class="colors">
+                        <!-- antes de empezar la color animation, tenemos que añadir un atributo llamado "primary" a cada elemento "color" donde pondremos el código hexadecimal de ese color. Y finalmente vamos a seleccionar los colores en app.js con la constante colors °° -->
+                        <span class="color active" primary="#3382f8" color="blue"></span>
+                        <span class="color" primary="#05c54e" color="green"></span>
+                        <span class="color" primary="#c91a17" color="red"></span>
+                        <span class="color" primary="#202020" color="black"></span>
+                        <span class="color" primary="#ff5a2c" color="orange"></span>
+                    </div>
+                </div>
+                <div class="size-container">
+                    <h3 class="title">Talle</h3>
+                    <div class="sizes">
+                        <span class="size">37</span>
+                        <span class="size">38</span>
+                        <span class="size active">39</span>
+                        <span class="size">40</span>
+                        <span class="size">41</span>
+                    </div>
+                </div>
+                <div class="cost">
+                    <a href="#" class="buy"><i class="fas fa-shopping-cart"></i> Añadir a carrito</a>
+                    <div class="price">
+                        <i class="fas fa-dollar-sign"></i>
+                        <h1>1500</h1>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <!-- <script src="function.js"></script> -->
+
+</body>
+</html>

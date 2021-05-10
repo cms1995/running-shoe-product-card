@@ -1,0 +1,460 @@
+:root{
+    --primary: #3382f8;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+
+body{
+    background-color: rgba(233, 227, 227, 0.911);
+}
+
+
+
+.container{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 35px;
+    overflow: hidden;
+}
+
+.product-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 850px;
+}
+
+
+
+.background-shoe{
+    position: relative;
+    width: 50%;
+    height: 470px;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1),
+    0 -15px 35px rgba(0, 0, 0, 0.1),
+    0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+
+/* el contenedor .gradients va a tomar todo el width y la height 
+de su contendor padre (background-shoe) */
+.gradients{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* también, cada opción va a tomar todo el width y height de su padre (.gradients), lo que significa que va a tomar también, todo el width y height de .background-shoe.
+todos los gradient van a tener el 100% del width y z-index "-2"
+pero el gradient que queramos que aparezca va a tener z-index 0*/
+
+.gradient{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+}
+
+.first{
+    z-index: 0;
+    animation: 1s width ease;
+}
+
+/* tenemos un pequeño bug, s/ embargo, que es que siempre que cambiamos el color, hay una transición del grandiente en la q aparece el gradiente negro de fondo. Para arreglaro, crearemos otra clase llamada "second"donde tendremos un z-index de -1 (entre -2 y 0), porque el ultimo gradiente debe tener un z index  entre el z-index del gradiente anterior y del nuevo gradiente que estamos seleccionando. finalmente, nos vamos al archivo .js y agregamos la clase "second" al último gradiente (linea 21) :>)*/
+.second{
+    z-index: -1;
+}
+
+@keyframes width{
+    from{
+        width: 0%;
+    }
+    to{
+        width: 100%;
+    }
+}
+
+.gradient[color="blue"]{
+    background-image: linear-gradient(40deg, #013fd1, #3db6fc);
+    
+}
+
+.gradient[color="green"]{
+    background-image: linear-gradient(40deg, #14a89c, #05c54e);
+    
+}
+.gradient[color="red"]{
+    background-image: linear-gradient(40deg, #c50502, #eb514f);
+}
+.gradient[color="black"]{
+    background-image: linear-gradient(40deg, rgb(32, 32, 32), rgb(114, 114, 114));
+}
+.gradient[color="orange"]{
+    background-image: linear-gradient(40deg, #ff5a2c, #fac04b);
+}
+
+.logo{
+    position: absolute;
+    width: 100px;
+    left: 20px;
+    top: 20px;
+}
+
+.share{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #fff;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 25px;
+    text-decoration: none;
+    color: var(--primary);
+    transition: .5s;
+}
+
+.share:hover{
+    transform: scale(1.1);
+}
+
+.share i{
+    line-height: 55px;
+}
+
+.nike{
+    position: absolute;
+    top: 85px;
+    left: 15px;
+    font-size: 10rem;
+    line-height: 0.85;
+    text-transform: uppercase;
+    color: white;
+    opacity: .15;
+}
+
+.shoe{
+    position: absolute;
+    width: 140%;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-20deg);
+}
+
+.shoe.show{
+    opacity: 1;
+}
+
+.info{
+    width: 50%;
+    background-color: white;
+    z-index: 1;
+    padding: 30px 35px;
+    box-shadow: 10px 0 30px rgba(0, 0, 0, 0.1),
+    0 -10px 30px rgba(0, 0, 0, 0.1)
+    0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.shoe-model{
+    padding: 0 0 5px 0;
+}
+
+.shoe-model div{
+    display: flex;
+    align-items: center;
+}
+
+.shoe-model div .name{
+    margin-right: 7px;
+    font-size: 32px;
+    color: #333;
+    line-height: 1;
+}
+
+.shoe-model div .new-shoe{
+    background-color: var(--primary);
+    text-transform: uppercase;
+    color: white;
+    font-weight: bold;
+    padding: 1px;
+    border-radius: 5px;
+}
+
+.shoe-model .main-feature{
+    font-weight: 500;
+    color: rgb(77, 75, 75);
+    margin-top: 3px;
+    text-transform: capitalize;
+}
+
+
+.shoe-model, .description, .color-container, .size-container{
+    border-bottom: 1px solid rgb(207, 200, 200);
+}
+
+.description{
+    padding: 10px 0;
+}
+
+.title{
+    color: #413f3f;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.text{
+    color: rgb(58, 58, 58);
+    font-size: 15px;
+}
+
+.color-container{
+    padding: 10px 0;
+}
+
+.colors{
+    padding: 7px 0;
+    display: flex;
+    align-items: center;
+}
+
+.color{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 3px solid;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.color[color="blue"]{
+    background-color: #3382f8;
+}
+.color[color="green"]{
+    background-color: #05c54e;
+}
+.color[color="red"]{
+    background-color: #c91a17;
+}
+.color[color="black"]{
+    background-color: #202020;
+}
+.color[color="orange"]{
+    background-color: #ff5a2c;
+}
+
+.color.active{
+    border-color: white;
+    box-shadow: 0 0 10px .5 rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.size-container{
+    padding: 8px 0;
+    margin-bottom: 7px;
+}
+
+.sizes{
+    width: 6px 0;
+    display: flex;
+    align-items: center;
+}
+
+.size{
+    width: 37px;
+    height: 37px;
+    border-radius: 5px;
+    background-color: rgb(218, 214, 214);
+    margin: 0 10px;
+    text-align: center;
+    line-height: 37px;
+    font-size: 18;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+
+
+.size.active{
+    background-color: var(--primary);
+    color: white;
+}
+
+.cost{
+    padding-top: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price{
+    color: rgb(44, 44, 44);
+    display: flex;
+    align-items: flex-start;
+}
+
+.price h1{
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.price i{
+    font-size: 17px;
+    margin-right: 1px;
+}
+
+.buy{
+    padding: 8px 12px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 1000px) {
+    .product-card{
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .product-card > div{
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .shoe{
+        width: 100%;
+        transform: rotate(-5deg) translateY(-55%);
+        top: 55%;
+        right: 2%;
+    }
+
+    .nike{
+        top: 20%;
+        left: 5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .share{
+        width: 45px;
+        height: 45px;
+    }
+
+    .share i {
+        font-size: 23px;
+        line-height: 40px;
+    }
+
+    .logo{
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .nike{
+        font-size: 6rem;
+    }
+    
+    .shoe-model div .name{
+        font-size: 25px;
+    }
+
+    .main-feature{
+        font-size: 1rem;
+    }
+
+    .new-shoe{
+        padding: 2px 6px;
+        font-size: .9rem;
+    }
+
+    .title{
+        font-size: .9rem;
+    }
+
+    .text{
+        font-size: .8rem;
+    }
+
+    .buy{
+        padding: .5rem .8rem;
+        font-size: .8rem;
+    }
+
+    .price h1{
+        font-size: 1.5rem;
+    }
+
+    .price i{
+        font-size: .9rem;
+    }
+
+    .size{
+        width: 30px;
+        height: 30px;
+        margin: 0 8px;
+        font-size: .9rem;
+        line-height: 30px;
+    }
+
+    .color{
+        margin: 0 20px;
+        width: 20px;
+        height: 20px;
+        border-width: 4px;
+    }
+
+    .share{
+        width: 35px;
+        height: 35px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .share i{
+        font-size: 20px;
+        line-height: 35px;
+    }
+
+    .logo{
+        width: 60px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .info{
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .buy i{
+        display: none;
+    }
+
+    .container{
+        padding: 20px;
+    }
+}
